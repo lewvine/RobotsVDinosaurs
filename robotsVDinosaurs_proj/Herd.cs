@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace robotsVDinosaurs_proj
 {
-    class Herd
+    public class Herd
     {
         //Member variables
         public List<Dinosaur> dinosaurs;

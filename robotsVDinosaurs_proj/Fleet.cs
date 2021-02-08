@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace robotsVDinosaurs_proj
 {
-    class Fleet
+    public class Fleet
     {
         //Member variables
-        List<Robot> robots;
+        public List<Robot> robots;
 
         //Constructor
         public Fleet()

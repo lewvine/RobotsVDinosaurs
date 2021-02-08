@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace robotsVDinosaurs_proj
 {
-    class Robot
+    public class Robot
     {
         //Member variables
-        string name;
-        int health;
-        int powerLevel;
-        Weapon weapon;
+        public string name;
+        public int health;
+        public int powerLevel;
+        public Weapon weapon;
 
         //Constructor
         public Robot(string name, int health, int powerLevel, Weapon weapon)
@@ -23,6 +23,16 @@ namespace robotsVDinosaurs_proj
             this.weapon = weapon;
         }
         //Member methods
+        public int Attack()
+        {
+            Random rand = new Random();
+            int attack = rand.Next(1, this.weapon.attackPower);
+            return attack;
+        }
+        public void Loss(int diff)
+        {
+            this.health -= diff;
+        }
 
     }
 }

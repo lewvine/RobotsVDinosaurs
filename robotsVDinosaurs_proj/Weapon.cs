@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace robotsVDinosaurs_proj
 {
-    class Weapon
+    public class Weapon
     {
         //Member variables
-        string type;
-        int attackPower;
+        public string type;
+        public int attackPower;
 
 
         //Constructor
