@@ -14,15 +14,20 @@ namespace robotsVDinosaurs_proj
         //Constructor
         public Fleet()
         {
-            Weapon lance = new Weapon("lance", 10);
-            Weapon javelin = new Weapon("javelin", 5);
-            Weapon saber = new Weapon("saber", 3);
+            //create a new list
+            robots = new List<Robot>();
 
+            //Create individual weapons for each robot
+            Weapon lance = new Weapon("lance", 5);
+            Weapon javelin = new Weapon("javelin", 6);
+            Weapon saber = new Weapon("saber", 8);
+
+            //Create individual robots
             Robot c3p0 = new Robot("C3PO", 100, 100, lance);
             Robot r2d2 = new Robot("R2D2", 100, 100, javelin);
             Robot hal = new Robot("Hal", 100, 100, saber);
 
-            List<Robot> robots = new List<Robot>();
+            //Add individual robots to robot list
             robots.Add(c3p0);
             robots.Add(r2d2);
             robots.Add(hal);

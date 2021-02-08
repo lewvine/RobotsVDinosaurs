@@ -14,15 +14,21 @@ namespace robotsVDinosaurs_proj
         //Constructor
         public Herd()
         {
-            List<Dinosaur> dinosaurs = new List<Dinosaur>();
+            //instantiate a list
+            dinosaurs = new List<Dinosaur>();
 
+            //Create individual dinosaurs
             //Dinosaur(string type, int health, int energy, int attackPower)
             Dinosaur spinosaurus = new Dinosaur("Spinosaurus", 100, 100, 5);
-            Dinosaur triceratops = new Dinosaur("Triceratops", 100, 100, 3);
-            Dinosaur allosaurus = new Dinosaur("Allosaurus", 100, 100, 4);
+            Dinosaur triceratops = new Dinosaur("Triceratops", 100, 100, 6);
+            Dinosaur allosaurus = new Dinosaur("Allosaurus", 100, 100, 8);      
+
+            //Add individual dinosaurs to list
             dinosaurs.Add(spinosaurus);
             dinosaurs.Add(triceratops);
             dinosaurs.Add(allosaurus);
+
+
         }
         //Member methods
     }

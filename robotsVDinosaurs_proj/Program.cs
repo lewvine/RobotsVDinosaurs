@@ -10,6 +10,7 @@ namespace robotsVDinosaurs_proj
     {
         static void Main(string[] args)
         {
+            Battlefield battlefield = new Battlefield();
         }
     }
 }
