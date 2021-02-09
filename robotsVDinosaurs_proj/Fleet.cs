@@ -18,9 +18,9 @@ namespace robotsVDinosaurs_proj
             robots = new List<Robot>();
 
             //Create individual weapons for each robot
-            Weapon lance = new Weapon("lance", 5);
-            Weapon javelin = new Weapon("javelin", 6);
-            Weapon saber = new Weapon("saber", 8);
+            Weapon lance = new Weapon("lance", 20);
+            Weapon javelin = new Weapon("javelin", 24);
+            Weapon saber = new Weapon("saber", 32);
 
             //Create individual robots
             Robot c3p0 = new Robot("C3PO", 100, 100, lance);

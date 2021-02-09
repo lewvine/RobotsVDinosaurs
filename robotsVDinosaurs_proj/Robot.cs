@@ -13,7 +13,6 @@ namespace robotsVDinosaurs_proj
         public int health;
         public int powerLevel;
         public Weapon weapon;
-        public Random rand;
 
         //Constructor
         public Robot(string name, int health, int powerLevel, Weapon weapon)
@@ -22,12 +21,11 @@ namespace robotsVDinosaurs_proj
             this.health = health;
             this.powerLevel = powerLevel;
             this.weapon = weapon;
-            this.rand = new Random();
         }
         //Member methods
-        public int Attack(int atk)
+        public int Attack(Random rand)
         {
-            int attack = rand.Next(1, atk);
+            int attack = rand.Next(this.weapon.attackPower / 2, this.weapon.attackPower);
             return attack;
         }
         public void Loss(int diff)

@@ -19,9 +19,9 @@ namespace robotsVDinosaurs_proj
 
             //Create individual dinosaurs
             //Dinosaur(string type, int health, int energy, int attackPower)
-            Dinosaur spinosaurus = new Dinosaur("Spinosaurus", 100, 100, 5);
-            Dinosaur triceratops = new Dinosaur("Triceratops", 100, 100, 6);
-            Dinosaur allosaurus = new Dinosaur("Allosaurus", 100, 100, 8);      
+            Dinosaur spinosaurus = new Dinosaur("Spinosaurus", 100, 100, 20);
+            Dinosaur triceratops = new Dinosaur("Triceratops", 100, 100, 24);
+            Dinosaur allosaurus = new Dinosaur("Allosaurus", 100, 100, 32);      
 
             //Add individual dinosaurs to list
             dinosaurs.Add(spinosaurus);

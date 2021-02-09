@@ -33,7 +33,7 @@ namespace robotsVDinosaurs_proj
             {
                 Round(dinosaurPlayer, robotPlayer);
             }
-            if (dinosaurPlayer.health == 0)
+            if (dinosaurPlayer.health <= 0)
             {
                 Console.WriteLine($"{dinosaurPlayer.type} has been defeated!");
                 Console.ReadLine();
@@ -51,7 +51,7 @@ namespace robotsVDinosaurs_proj
                     Console.ReadLine();
                 }
             }
-            else if (robotPlayer.health == 0)
+            else if (robotPlayer.health <= 0)
             {
                 Console.WriteLine($"{robotPlayer.name} has been defeated!");
                 fleet.robots.Remove(robotPlayer);
@@ -73,43 +73,35 @@ namespace robotsVDinosaurs_proj
 
         public void Round(Dinosaur dinosaur, Robot robot)
         {
-            int robotAttack = robot.rand.Next(1, robot.weapon.attackPower);
-            int dinoAttackValue = dinosaur.Attack(robotAttack);
-            Console.WriteLine($"{robot.name} attacked with {robotAttack}.");
-            Console.ReadLine();
+            Random rand = new Random();
 
-            int dinoAttack = dinosaur.rand.Next(1, dinosaur.attackPower);
-            int robotAttackValue = robot.Attack(dinoAttack);
+            int dinoAttack = dinosaur.Attack(rand);
             Console.WriteLine($"{dinosaur.type} attacked with {dinoAttack}.");
             Console.ReadLine();
 
-            if (dinoAttackValue > robotAttackValue)
+            int robotAttack = robot.Attack(rand);
+            Console.WriteLine($"{robot.name} attacked with {robotAttack}.");
+            Console.ReadLine();
+
+            if (dinoAttack > robotAttack)
             {
-                robot.Loss(dinoAttackValue);
-                Console.WriteLine($"{dinosaur.type} wins!  {robot.name} loses {dinoAttackValue} health.");
-                Console.WriteLine($"{dinosaur.type} health: {dinosaur.health}.  Robot health: {robot.health}");
-                Console.WriteLine("Hit ENTER to go to the next round.");
-                Console.ReadLine();
+                robot.Loss(dinoAttack);
+
+                Console.WriteLine($"{dinosaur.type} wins!  {robot.name} loses {dinoAttack} health.");
             }
-            else if(dinoAttackValue < robotAttackValue)
+            else if(dinoAttack < robotAttack)
             {
-                dinosaur.Loss(robotAttackValue);
-                Console.WriteLine($"{robot.name} wins!  {dinosaur.type} loses {robotAttackValue} health.");
-                Console.WriteLine($"{dinosaur.type} health: {dinosaur.health}.  {robot.name} health: {robot.health}");                Console.WriteLine("His ENTER to go to the next round.");
-                Console.ReadLine();
+                dinosaur.Loss(robotAttack);
+                Console.WriteLine($"{robot.name} wins!  {dinosaur.type} loses {robotAttack} health.");
             }
             else
             {
                 Console.WriteLine("The attacks offset!");
-                Console.WriteLine($"{dinosaur.type} health: {dinosaur.health}.  {robot.name} health: {robot.health}.");
-                Console.WriteLine("His ENTER to go to the next round.");
-                Console.ReadLine();
             }
 
-
-
+            Console.WriteLine($"{dinosaur.type} health: {dinosaur.health}.  {robot.name} health: {robot.health}.");
+            Console.WriteLine("Hit ENTER to go to the next round.");
+            Console.ReadLine();
         }
-
-
     }
 }

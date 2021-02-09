@@ -13,7 +13,6 @@ namespace robotsVDinosaurs_proj
         public int health;
         public int energy;
         public int attackPower;
-        public Random rand;
 
         //Constructor
         public Dinosaur(string type, int health, int energy, int attackPower)
@@ -22,13 +21,13 @@ namespace robotsVDinosaurs_proj
             this.health = health;
             this.energy = energy;
             this.attackPower = attackPower;
-            this.rand = new Random();
         }
 
         //Member methods
-        public int Attack(int atk)
+        public int Attack(Random rand)
         {
-            int attack = rand.Next(1, atk);
+            int attack = rand.Next(this.attackPower / 2, this.attackPower);
+            Console.ReadLine();
             return attack;
         }
 
