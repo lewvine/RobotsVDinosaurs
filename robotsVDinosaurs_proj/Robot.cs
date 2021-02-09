@@ -33,5 +33,34 @@ namespace robotsVDinosaurs_proj
             this.health -= diff;
         }
 
+        public void ChooseWeapon(Fleet fleet)
+        {
+            Console.WriteLine($"{this.name}'s default weapon is the {this.weapon.type}.  Choose the robot's weapon:" +
+                $"\n (1) {fleet.weapons[0].type} with attack of {fleet.weapons[0].attackPower}" +
+                $"\n (2) {fleet.weapons[1].type} with attack of {fleet.weapons[1].attackPower}" +
+                $"\n (3) {fleet.weapons[2].type} with attack of {fleet.weapons[2].attackPower}");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    this.weapon = fleet.weapons[0];
+                    break;
+                case "2":
+                    this.weapon = fleet.weapons[1];
+                    break;
+                case "3":
+                    this.weapon = fleet.weapons[2];
+                    break;
+                default:
+                    this.weapon = this.weapon;
+                    break;
+            }
+
+            Console.WriteLine($"You have chosen the {this.weapon.type}");
+            Console.WriteLine("PREPARE FOR BATTLE!");
+            Console.ReadLine();
+        }
+
     }
 }

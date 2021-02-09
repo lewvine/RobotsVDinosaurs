@@ -10,12 +10,14 @@ namespace robotsVDinosaurs_proj
     {
         //Member variables
         public List<Robot> robots;
+        public List<Weapon> weapons;
 
         //Constructor
         public Fleet()
         {
             //create a new list
             robots = new List<Robot>();
+            weapons = new List<Weapon>();
 
             //Create individual weapons for each robot
             Weapon lance = new Weapon("lance", 20);
@@ -31,6 +33,12 @@ namespace robotsVDinosaurs_proj
             robots.Add(c3p0);
             robots.Add(r2d2);
             robots.Add(hal);
+
+            //Add individual weapons to the weapons list
+            
+            weapons.Add(lance);
+            weapons.Add(javelin);
+            weapons.Add(saber);
         }
         //Member methods
         public void LostRound(Robot robot)
