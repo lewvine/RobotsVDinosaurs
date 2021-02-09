@@ -73,15 +73,19 @@ namespace robotsVDinosaurs_proj
 
         public void Round(Dinosaur dinosaur, Robot robot)
         {
+            int robotAttack = robot.rand.Next(1, robot.weapon.attackPower);
+            int dinoAttackValue = dinosaur.Attack(robotAttack);
+            Console.WriteLine($"{robot.name} attacked with {robotAttack}.");
+            Console.ReadLine();
 
-            int dinoAttackValue = dinosaur.Attack();
-            int robotAttackValue = robot.Attack();
+            int dinoAttack = dinosaur.rand.Next(1, dinosaur.attackPower);
+            int robotAttackValue = robot.Attack(dinoAttack);
+            Console.WriteLine($"{dinosaur.type} attacked with {dinoAttack}.");
+            Console.ReadLine();
 
             if (dinoAttackValue > robotAttackValue)
             {
                 robot.Loss(dinoAttackValue);
-                Console.WriteLine($"{dinosaur.type} attacked with {dinoAttackValue}.");
-                Console.WriteLine($"{robot.name} attacked with {robotAttackValue}.");
                 Console.WriteLine($"{dinosaur.type} wins!  {robot.name} loses {dinoAttackValue} health.");
                 Console.WriteLine($"{dinosaur.type} health: {dinosaur.health}.  Robot health: {robot.health}");
                 Console.WriteLine("Hit ENTER to go to the next round.");
@@ -90,8 +94,6 @@ namespace robotsVDinosaurs_proj
             else if(dinoAttackValue < robotAttackValue)
             {
                 dinosaur.Loss(robotAttackValue);
-                Console.WriteLine($"{dinosaur.type} attacked with {dinoAttackValue}.");
-                Console.WriteLine($"{robot.name} attacked with {robotAttackValue}.");
                 Console.WriteLine($"{robot.name} wins!  {dinosaur.type} loses {robotAttackValue} health.");
                 Console.WriteLine($"{dinosaur.type} health: {dinosaur.health}.  {robot.name} health: {robot.health}");                Console.WriteLine("His ENTER to go to the next round.");
                 Console.ReadLine();
