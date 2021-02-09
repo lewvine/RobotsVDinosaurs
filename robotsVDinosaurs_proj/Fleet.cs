@@ -33,6 +33,17 @@ namespace robotsVDinosaurs_proj
             robots.Add(hal);
         }
         //Member methods
+        public void LostRound(Robot robot)
+        {
+            Console.WriteLine($"{robot.name} has been defeated!");
+            this.robots.Remove(robot);
+        }
 
+        public Robot NextPlayer()
+        {
+            Robot robot = this.robots.First();
+            Console.WriteLine($"{robot.name} is now joining the fight!");
+            return robot;
+        }
     }
 }

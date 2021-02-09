@@ -27,9 +27,21 @@ namespace robotsVDinosaurs_proj
             dinosaurs.Add(spinosaurus);
             dinosaurs.Add(triceratops);
             dinosaurs.Add(allosaurus);
-
-
         }
         //Member methods
+
+        public void LostRound(Dinosaur dino)
+        {
+            Console.WriteLine($"{dino.type} has been defeated!");
+            this.dinosaurs.Remove(dino);
+        }
+
+        public Dinosaur NextPlayer()
+        {
+            Dinosaur dino = this.dinosaurs.First();
+            Console.WriteLine($"{dino.type} is now joining the fight!");
+            return dino;
+        
+        }
     }
 }

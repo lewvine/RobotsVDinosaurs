@@ -28,22 +28,18 @@ namespace robotsVDinosaurs_proj
             //Start with first player from each side
             Dinosaur dinosaurPlayer = herd.dinosaurs.First();
             Robot robotPlayer = fleet.robots.First();
-            
-            while(dinosaurPlayer.health > 0 && robotPlayer.health > 0)
+
+            while (dinosaurPlayer.health > 0 && robotPlayer.health > 0)
             {
                 Round(dinosaurPlayer, robotPlayer);
-            }
+            };
+
             if (dinosaurPlayer.health <= 0)
             {
-                Console.WriteLine($"{dinosaurPlayer.type} has been defeated!");
-                Console.ReadLine();
-                herd.dinosaurs.Remove(dinosaurPlayer);
+                herd.LostRound(dinosaurPlayer);
                 if (herd.dinosaurs.Count > 0)
                 {
-                    dinosaurPlayer = herd.dinosaurs.First();
-                    Console.WriteLine($"{dinosaurPlayer.type} is now joining the fight!");
-                    Console.ReadLine();
-                    Round(dinosaurPlayer, robotPlayer);
+                    Battle(herd, fleet);
                 }
                 else
                 {
@@ -53,15 +49,10 @@ namespace robotsVDinosaurs_proj
             }
             else if (robotPlayer.health <= 0)
             {
-                Console.WriteLine($"{robotPlayer.name} has been defeated!");
-                fleet.robots.Remove(robotPlayer);
-                Console.ReadLine();
+                fleet.LostRound(robotPlayer);
                 if (fleet.robots.Count > 0)
                 {
-                    robotPlayer = fleet.robots.First();
-                    Console.WriteLine($"{robotPlayer.name} is now joining the fight!");
-                    Console.ReadLine();
-                    Round(dinosaurPlayer, robotPlayer);
+                    Battle(herd, fleet);
                 }
                 else
                 {
@@ -73,6 +64,7 @@ namespace robotsVDinosaurs_proj
 
         public void Round(Dinosaur dinosaur, Robot robot)
         {
+            //Setting each fight's attack value and calling the attack method.
             Random rand = new Random();
 
             int dinoAttack = dinosaur.Attack(rand);
@@ -83,10 +75,10 @@ namespace robotsVDinosaurs_proj
             Console.WriteLine($"{robot.name} attacked with {robotAttack}.");
             Console.ReadLine();
 
+            //Assessing who won the round.
             if (dinoAttack > robotAttack)
             {
                 robot.Loss(dinoAttack);
-
                 Console.WriteLine($"{dinosaur.type} wins!  {robot.name} loses {dinoAttack} health.");
             }
             else if(dinoAttack < robotAttack)
