@@ -10,23 +10,35 @@ namespace robotsVDinosaurs_proj
     {
         //Member variables
         public List<Dinosaur> dinosaurs;
+        public List<DinoAttack> attackModes;
 
         //Constructor
         public Herd()
         {
             //instantiate a list
             dinosaurs = new List<Dinosaur>();
+            attackModes = new List<DinoAttack>();
+
+            DinoAttack slash = new DinoAttack("slash", 20);
+            DinoAttack stomp = new DinoAttack("stomp", 24);
+            DinoAttack chomp = new DinoAttack("chomp", 32);
 
             //Create individual dinosaurs
-            //Dinosaur(string type, int health, int energy, int attackPower)
-            Dinosaur spinosaurus = new Dinosaur("Spinosaurus", 100, 100, 20);
-            Dinosaur triceratops = new Dinosaur("Triceratops", 100, 100, 24);
-            Dinosaur allosaurus = new Dinosaur("Allosaurus", 100, 100, 32);      
+            //Dinosaur(string type, int health, int energy, DinoAttack attack)
+            Dinosaur spinosaurus = new Dinosaur("Spinosaurus", 100, 100, slash);
+            Dinosaur triceratops = new Dinosaur("Triceratops", 100, 100, stomp);
+            Dinosaur allosaurus = new Dinosaur("Allosaurus", 100, 100, chomp);      
 
             //Add individual dinosaurs to list
             dinosaurs.Add(spinosaurus);
             dinosaurs.Add(triceratops);
             dinosaurs.Add(allosaurus);
+
+            attackModes.Add(slash);
+            attackModes.Add(stomp);
+            attackModes.Add(chomp);
+
+
         }
         //Member methods
 

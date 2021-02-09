@@ -29,6 +29,7 @@ namespace robotsVDinosaurs_proj
             Dinosaur dinosaurPlayer = herd.dinosaurs.First();
             Robot robotPlayer = fleet.robots.First();
             robotPlayer.ChooseWeapon(fleet);
+            dinosaurPlayer.ChooseAttack(herd);
 
             while (dinosaurPlayer.health > 0 && robotPlayer.health > 0)
             {
