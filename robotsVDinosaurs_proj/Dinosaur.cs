@@ -27,6 +27,7 @@ namespace robotsVDinosaurs_proj
         public int Attack(Random rand)
         {
             int attack = rand.Next(this.attackMode.attackPower / 2, this.attackMode.attackPower);
+            this.energy -= 10;
             return attack;
         }
 

@@ -26,6 +26,7 @@ namespace robotsVDinosaurs_proj
         public int Attack(Random rand)
         {
             int attack = rand.Next(this.weapon.attackPower / 2, this.weapon.attackPower);
+            this.powerLevel -= 10;
             return attack;
         }
         public void Loss(int diff)
